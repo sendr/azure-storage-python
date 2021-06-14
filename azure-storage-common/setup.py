@@ -50,7 +50,7 @@ setup(
     license='MIT License',
     author='Microsoft Corporation',
     author_email='ascl@microsoft.com',
-    url='https://github.com/Azure/azure-storage-python',
+    url='https://github.com/sendr/azure-storage-python',
     classifiers=[
         'Development Status :: 4 - Beta',
         'Programming Language :: Python',
@@ -77,6 +77,6 @@ setup(
         'requests',
     ],
     extras_require={
-        ":python_version<'3.0'": ['azure-storage-nspkg'],
+        ":python_version<'3.0'": ['azure-storage-nspkg @ git+https://github.com/sendr/azure-storage-python.git@azure'],
     }
 )

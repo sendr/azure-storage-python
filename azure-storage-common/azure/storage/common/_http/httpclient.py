@@ -89,7 +89,8 @@ class _HTTPClient(object):
                                         headers=request.headers,
                                         data=request.body or None,
                                         timeout=self.timeout,
-                                        proxies=self.proxies)
+                                        proxies=self.proxies,
+                                        stream=True)
 
         # Parse the response
         status = int(response.status_code)
@@ -101,7 +102,7 @@ class _HTTPClient(object):
             else:
                 response_headers[key.lower()] = name
 
-        wrap = HTTPResponse(status, response.reason, response_headers, response.content)
+        wrap = HTTPResponse(status, response.reason, response_headers, response.raw.read())
         response.close()
 
         return wrap
